@@ -124,14 +124,14 @@ public class Job implements Serializable, Identifizierbar, Comparable<Job> {
 		this.name = generateID() + "_" + this.getKunden().getKundenkuerzel()
 				+ "_";
 		char[] carr = this.jobbeschreibung.toCharArray();
-		int lŠnge = this.name.length();
+		int lÃ¤nge = this.name.length();
 		for (int i = this.name.length(); i < 26; i++) {
 			try {
-				this.name += carr[i - lŠnge];
-				// System.out.println(lŠnge);
+				this.name += carr[i - lÃ¤nge];
+				// System.out.println(lï¿½nge);
 			} catch (ArrayIndexOutOfBoundsException e) {
 				// System.err.println("Jobbeschreibung zu kurz");
-				// der job name kšnnte noch lŠnger sein
+				// der job name kï¿½nnte noch lï¿½nger sein
 				break;
 			}
 		}
@@ -149,7 +149,7 @@ public class Job implements Serializable, Identifizierbar, Comparable<Job> {
 	}
 
 	/**
-	 * Generiert aus der standart ID, die mit nullen(auf 5 Stellen) aufgefŸllte
+	 * Generiert aus der standart ID, die mit nullen(auf 5 Stellen) aufgefï¿½llte
 	 * variante
 	 * 
 	 * @return generierte ID

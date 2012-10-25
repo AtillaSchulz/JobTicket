@@ -33,17 +33,17 @@
 					<p:column colspan="5">
 						<p:panel header="JOBTICKET" styleClass="jobHeader" />
 					</p:column>
-					<p:column >
+					<p:column>
 					</p:column>
 				</p:row>
 				<p:row>
-					<p:column ></p:column>
+					<p:column></p:column>
 					<p:column styleClass="jobTicketLabel">
 						<h:outputLabel value="Jobnummer" for="jobnummer" />
 					</p:column>
 					<p:column>
 						<p:inputText id="jobnummer" value="#{mainBean.jobBean.jobnummer}"
-							disabled="true" styleClass="jobnummerFeld"/>
+							disabled="true" styleClass="jobnummerFeld" />
 					</p:column>
 					<p:column>
 					</p:column>
@@ -52,15 +52,16 @@
 					</p:column>
 					<p:column>
 						<p:inputText id="alte_jobnummer"
-							value="#{mainBean.jobBean.alte_jobnummer}" styleClass="inputAltejobnummer"/>
+							value="#{mainBean.jobBean.alte_jobnummer}"
+							styleClass="inputAltejobnummer" />
 					</p:column>
 					<p:column>
 						<p:commandButton value="▼" styleClass="a_Job_Button" />
 					</p:column>
 				</p:row>
 				<p:row>
-					<p:column ></p:column>
-					<p:column  styleClass="jobTicketLabel">
+					<p:column></p:column>
+					<p:column styleClass="jobTicketLabel">
 						<h:outputLabel value="Kundenname*" for="inputKundenname" />
 					</p:column>
 					<p:column>
@@ -84,7 +85,8 @@
 					<p:column>
 						<p:autoComplete id="inputKundenkuerzel"
 							value="#{mainBean.jobBean.kundenkuerzel}"
-							completeMethod="#{mainBean.jobBean.completeKundenkuerzel}" styleClass="inputKundenkürzel">
+							completeMethod="#{mainBean.jobBean.completeKundenkuerzel}"
+							styleClass="inputKundenkürzel">
 							<p:ajax event="itemSelect"
 								listener="#{mainBean.jobBean.findKundenname}"
 								update="inputKundenname" />
@@ -98,26 +100,27 @@
 				</p:row>
 
 				<p:row>
-					<p:column ></p:column>
-					<p:column  styleClass="jobTicketLabel">
-						<h:outputLabel value="Job*" for="inputJobbez"  />
+					<p:column></p:column>
+					<p:column styleClass="jobTicketLabel">
+						<h:outputLabel value="Job*" for="inputJobbez" />
 					</p:column>
 
-					<p:column >
-						<p:inputText id="inputJobbez" value="#{mainBean.jobBean.job}" styleClass="jobTicketInputField"/>
+					<p:column>
+						<p:inputText id="inputJobbez" value="#{mainBean.jobBean.job}"
+							styleClass="jobTicketInputField" />
 						<h:outputLabel style="color:red;font-size:75%" for="inputJobbez"
 							value="Bitte eingeben"
 							rendered="#{mainBean.jobBean.emptyField_job}" />
 					</p:column>
 				</p:row>
 				<p:row>
-				<p:column ></p:column>
-				<p:column ></p:column>
-				<p:column ></p:column>
-				<p:column ></p:column>
-				<p:column ></p:column>
-				<p:column></p:column>
-				<p:column ></p:column>
+					<p:column></p:column>
+					<p:column></p:column>
+					<p:column></p:column>
+					<p:column></p:column>
+					<p:column></p:column>
+					<p:column></p:column>
+					<p:column></p:column>
 				</p:row>
 			</p:panelGrid>
 			<ui:repeat var="produkt"
@@ -129,7 +132,7 @@
 								update="@(form)"
 								rendered="#{mainBean.produktBean.showMinusProduktButton}"
 								actionListener="#{mainBean.produktBean.deleteProdukt}" />
-							
+
 						</p:column>
 						<p:column colspan="5">
 							<p:panel header="dassind32zeichenmitvielschummeln"
@@ -140,7 +143,7 @@
 						</p:column>
 					</p:row>
 					<p:row>
-						<p:column ></p:column>
+						<p:column></p:column>
 						<p:column>
 							<h:outputLabel value="Eingangsdatum*" for="eingangsDatum" />
 						</p:column>
@@ -165,7 +168,7 @@
 
 					</p:row>
 					<p:row>
-						<p:column ></p:column>
+						<p:column></p:column>
 						<p:column>
 							<h:outputLabel value="Fertigstellung" for="fertigstellungsDatum" />
 						</p:column>
@@ -190,12 +193,11 @@
 						</p:column>
 					</p:row>
 					<p:row>
-						<p:column ></p:column>
+						<p:column></p:column>
 						<p:column></p:column>
 						<p:column>
-							<p:commandButton value="#{produkt.printButtonText}"
-								actionListener="#{produkt.togglePrint}" update="@all"
-								styleClass="printButton" />
+							<p:commandButton value="#{produkt.printButtonText}" update=":mainForm"
+								actionListener="#{produkt.togglePrint}" styleClass="printButton" />
 						</p:column>
 						<p:column>
 						</p:column>
@@ -207,92 +209,92 @@
 						</p:column>
 					</p:row>
 					<p:row rendered="#{produkt.showPrint}">
-						<p:column ></p:column>
-						<p:columns>
+						<p:column></p:column>
+						<p:column>
 							<h:outputLabel value="Format" for="format" />
-						</p:columns>
-						<p:columns>
+						</p:column>
+						<p:column>
 							<p:inputText id="format" value="#{produkt.format}" />
-						</p:columns>
+						</p:column>
 						<p:column>
 						</p:column>
-						<p:columns>
+						<p:column>
 							<h:outputLabel value="Falzung" for="falzung" />
-						</p:columns>
-						<p:columns>
-							<p:inputText id="falzung" value="#{produkt.falzung}" />
-						</p:columns>
-					</p:row>
-					<p:row rendered="#{produkt.showPrint}">
-						<p:column ></p:column>
-						<p:columns>
-							<h:outputLabel value="Beschnitt" for="beschnitt" />
-						</p:columns>
-						<p:columns>
-							<p:inputText id="beschnitt" value="#{produkt.beschnitt}" />
-						</p:columns>
-						<p:column>
 						</p:column>
-						<p:columns>
-							<h:outputLabel value="Bindung" for="bindung" />
-						</p:columns>
-						<p:columns>
-							<p:inputText id="bindung" value="#{produkt.bindung}" />
-						</p:columns>
+						<p:column>
+							<p:inputText id="falzung" value="#{produkt.falzung}" />
+						</p:column>
 					</p:row>
 					<p:row rendered="#{produkt.showPrint}">
 						<p:column></p:column>
-						<p:columns>
-							<h:outputLabel value="Farbe" for="farbe" />
-						</p:columns>
-						<p:columns>
-							<p:inputText id="farbe" value="#{produkt.farbe}" />
-						</p:columns>
+						<p:column>
+							<h:outputLabel value="Beschnitt" for="beschnitt" />
+						</p:column>
+						<p:column>
+							<p:inputText id="beschnitt" value="#{produkt.beschnitt}" />
+						</p:column>
 						<p:column>
 						</p:column>
-						<p:columns>
-							<h:outputLabel value="Proof" for="proof" />
-						</p:columns>
-						<p:columns>
-							<p:inputText id="proof" value="#{produkt.proof}" />
-						</p:columns>
+						<p:column>
+							<h:outputLabel value="Bindung" for="bindung" />
+						</p:column>
+						<p:column>
+							<p:inputText id="bindung" value="#{produkt.bindung}" />
+						</p:column>
 					</p:row>
 					<p:row rendered="#{produkt.showPrint}">
-						<p:column ></p:column>
-						<p:columns>
-							<h:outputLabel value="Sonderfarbe" for="sonderfarbe" />
-						</p:columns>
-						<p:columns>
-							<p:inputText id="sonderfarbe" value="#{produkt.sonderfarbe}" />
-						</p:columns>
+						<p:column></p:column>
+						<p:column>
+							<h:outputLabel value="Farbe" for="farbe" />
+						</p:column>
+						<p:column>
+							<p:inputText id="farbe" value="#{produkt.farbe}" />
+						</p:column>
 						<p:column>
 						</p:column>
-						<p:columns>
+						<p:column>
+							<h:outputLabel value="Proof" for="proof" />
+						</p:column>
+						<p:column>
+							<p:inputText id="proof" value="#{produkt.proof}" />
+						</p:column>
+					</p:row>
+					<p:row rendered="#{produkt.showPrint}">
+						<p:column></p:column>
+						<p:column>
+							<h:outputLabel value="Sonderfarbe" for="sonderfarbe" />
+						</p:column>
+						<p:column>
+							<p:inputText id="sonderfarbe" value="#{produkt.sonderfarbe}" />
+						</p:column>
+						<p:column>
+						</p:column>
+						<p:column>
 							<h:outputLabel value="Dummy" for="dummy" />
-						</p:columns>
-						<p:columns>
+						</p:column>
+						<p:column>
 							<p:inputText id="dummy" value="#{produkt.dummy}" />
-						</p:columns>
+						</p:column>
 					</p:row>
 				</p:panelGrid>
 			</ui:repeat>
-			<p:panelGrid id="buttonGrid"  styleClass="buttonGrid">
+			<p:panelGrid id="buttonGrid" styleClass="buttonGrid">
 				<p:row>
 					<p:column>
-					<div class="buttonDiv">
-					<p:commandButton value="+" styleClass="produktPlusButton"
-					actionListener="#{mainBean.produktBean.addProdukt}"
-					update="@(form)" />
-				<p:commandButton value="-" styleClass="minusButton"
-					actionListener="#{mainBean.produktBean.renderMinusProduktButton}"
-					update="@(form)" />
-					</div>
+						<div class="buttonDiv">
+							<p:commandButton value="+" styleClass="produktPlusButton"
+								actionListener="#{mainBean.produktBean.addProdukt}"
+								update="@(form)" />
+							<p:commandButton value="-" styleClass="minusButton"
+								actionListener="#{mainBean.produktBean.renderMinusProduktButton}"
+								update="@(form)" />
+						</div>
 					</p:column>
-					</p:row>	
+				</p:row>
 			</p:panelGrid>
-			
-			
-			
+
+
+
 			<p:panelGrid id="aufwandGrid" styleClass="aufwandGrid">
 				<p:row>
 					<p:column styleClass="buttonColumn"></p:column>
@@ -302,7 +304,7 @@
 					</p:column>
 				</p:row>
 				<p:row>
-				<p:column styleClass="minusButtonCell">
+					<p:column styleClass="minusButtonCell">
 						<ui:repeat var="angestellter"
 							value="#{mainBean.angestellteBean.angestelltenSammlung}">
 							<p:commandButton styleClass="angestellteLöschenButton" value="-"
@@ -312,14 +314,15 @@
 						</ui:repeat>
 					</p:column>
 
-					<p:columns styleClass="angestellteOutputLabel">
+					<p:column styleClass="angestellteOutputLabel">
 						<ui:repeat var="angestellter"
 							value="#{mainBean.angestellteBean.angestelltenSammlung}">
 							<div>
-								<h:outputLabel value="#{angestellter.angestelltenbezeichnung}" styleClass="angestellteLabel"/>
+								<h:outputLabel value="#{angestellter.angestelltenbezeichnung}"
+									styleClass="angestellteLabel" />
 							</div>
 						</ui:repeat>
-					</p:columns>
+					</p:column>
 					<p:column styleClass="inputAngestellteColumn">
 						<ui:repeat var="angestellter"
 							value="#{mainBean.angestellteBean.angestelltenSammlung}">
@@ -347,13 +350,14 @@
 							<div>
 								<h:outputLabel value="Aufwand in €"
 									rendered="#{mainBean.kostenBean.abrechnungInEuro}"
-									for="kostenInEuro" styleClass="outputLabel"/>
+									for="kostenInEuro" styleClass="outputLabel" />
 								<h:outputLabel value="Aufwand in Std"
-									rendered="#{mainBean.kostenBean.abrechnungInStd}" styleClass="outputLabel"/>
+									rendered="#{mainBean.kostenBean.abrechnungInStd}"
+									styleClass="outputLabel" />
 							</div>
 						</ui:repeat>
 					</p:column>
-					<p:columns styleClass="aufwandInPutColumn">
+					<p:column styleClass="aufwandInPutColumn">
 						<ui:repeat var="angestellter"
 							value="#{mainBean.angestellteBean.angestelltenSammlung}">
 							<div>
@@ -371,7 +375,7 @@
 								</p:inputText>
 							</div>
 						</ui:repeat>
-					</p:columns>
+					</p:column>
 					<p:column styleClass="aufwandButtonColumn">
 						<ui:repeat var="angestellter"
 							value="#{mainBean.angestellteBean.angestelltenSammlung}">
@@ -408,8 +412,8 @@
 					<p:column>
 						<p:commandButton styleClass="achtungButton" value="!" />
 					</p:column>
-					<p:columns>
-					</p:columns>
+					<p:column>
+					</p:column>
 					<p:column>
 					</p:column>
 					<p:column>
@@ -418,9 +422,9 @@
 					<p:column>
 						<h:outputLabel value="Budget" for="budget" />
 					</p:column>
-					<p:columns>
+					<p:column>
 						<p:inputText id="budget" />
-					</p:columns>
+					</p:column>
 					<p:column>
 						<p:commandButton value="€" styleClass="budgetButton" />
 					</p:column>
@@ -435,20 +439,20 @@
 					</p:column>
 				</p:row>
 				<p:row>
-					<p:columns>
-					</p:columns>
-					<p:columns>
-					</p:columns>
-					<p:columns>
-					</p:columns>
 					<p:column>
 					</p:column>
 					<p:column>
 					</p:column>
-					<p:columns>
+					<p:column>
+					</p:column>
+					<p:column>
+					</p:column>
+					<p:column>
+					</p:column>
+					<p:column>
 						<p:commandButton value="Speichern" styleClass="speicherButton"
 							update="mainForm" actionListener="#{mainBean.speichern}" />
-					</p:columns>
+					</p:column>
 				</p:row>
 			</p:panelGrid>
 		</h:form>

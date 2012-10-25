@@ -364,7 +364,6 @@ public class ProduktModel implements Serializable {
 		this.showPrint = showPrint;
 	}
 
-
 	/**
 	 * Verändert das Icon des Printbuttons und merkt sich die letzte Einstellung
 	 **/
@@ -374,8 +373,8 @@ public class ProduktModel implements Serializable {
 		} else {
 			this.printButtonText = "▼";
 		}
-
 		this.showPrint = !this.showPrint;
+		 System.out.println("printzeigen: "+this.showPrint+" ...");
 	}
 
 	/**

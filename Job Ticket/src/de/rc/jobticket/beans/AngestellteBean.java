@@ -15,7 +15,7 @@ import de.rc.ColumnModel;
 /**
  * * juni 2012
  * <p>
- * Dynamische Verwaltungsklasse fŸr die Angestellten zwischen Layout und
+ * Dynamische Verwaltungsklasse fï¿½r die Angestellten zwischen Layout und
  * Datenbank
  * </p>
  * 
@@ -44,7 +44,7 @@ public class AngestellteBean implements Serializable {
 		angestelltenSammlung = new ArrayList<AngestellteModel>();
 		AngestellteModel a = new AngestellteModel(this);
 		a.setAngestelltenbezeichnung("Angestellter");
-		a.setAngestellte_name("Klaus GŸnther");
+		a.setAngestellte_name("Klaus GÃ¼nther");
 		angestelltenSammlung.add(a);
 		a = new AngestellteModel();
 		a.setAngestelltenbezeichnung("Grafiker");
@@ -55,7 +55,7 @@ public class AngestellteBean implements Serializable {
 
 	}
 	/**
-	 * FŸgt einen leeren Angestellten hinzu
+	 * Fï¿½gt einen leeren Angestellten hinzu
 	 */
 	public void addAngestellten() {
 		AngestellteModel a = new AngestellteModel();
@@ -65,7 +65,7 @@ public class AngestellteBean implements Serializable {
 	}
 
 	/**
-	 * EnthŠlt eine Liste aller Propertys aus dem AngestelltenModel
+	 * Enthï¿½lt eine Liste aller Propertys aus dem AngestelltenModel
 	 */
 	public void createColumns() {
 		columns = new ArrayList<ColumnModel>();
@@ -175,7 +175,7 @@ public class AngestellteBean implements Serializable {
 		this.shouldButtonRender = shouldButtonRender;
 	}
 	/**
-	 * Lšscht einen ausgewŠhlten Angestellten
+	 * Lï¿½scht einen ausgewï¿½hlten Angestellten
 	 */
 	public void deleteAngestellten(ActionEvent e) {
 		angestelltenSammlung.remove(Integer.parseInt(e.getComponent()

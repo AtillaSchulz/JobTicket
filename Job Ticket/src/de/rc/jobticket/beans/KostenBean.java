@@ -15,7 +15,7 @@ import de.rc.jobticket.entities.Kosten;
 /**
  * juni 2012
  * <p>
- * Verwaltungsklasse für die Kosten zwischen Layout und Datenbank
+ * Verwaltungsklasse f≈∏r die Kosten zwischen Layout und Datenbank
  * </p>
  * 
  * @author janine und atilla
@@ -35,6 +35,7 @@ public class KostenBean implements Serializable {
 	private Angestellte angestellte;
 	private boolean abrechnungInEuro;
 	private boolean abrechnungInStd;
+	private boolean isSwitched;
 
 	/**
 	 * Setzt Standartwerte
@@ -44,13 +45,24 @@ public class KostenBean implements Serializable {
 		abrechnungInStd = false;// Standart
 		kostenInEuro = "";
 		kostenInStd = "";
+		isSwitched = false;
 	}
 
 	/**
 	 * @return the kostenInStd
 	 */
 	public String getKostenInStd() {
-		return kostenInStd;
+		System.out.println("get kosten in std " + kostenInStd);
+		if (!this.kostenInEuro.replace("‚Ç¨", "").trim().isEmpty() && isSwitched) {
+			kostenInStd = ""
+					+ Math.round(Float.parseFloat(this.kostenInEuro
+							.replace("‚Ç¨", "").replace(",", ".").trim()) / 70f * 10f)
+					/ 10f;
+			isSwitched = false;
+		} else if (kostenInStd.replace("h", "").trim().isEmpty()) {
+			return kostenInStd;
+		}
+		return kostenInStd + " h";
 	}
 
 	/**
@@ -58,18 +70,26 @@ public class KostenBean implements Serializable {
 	 *            the kostenInStd to set
 	 */
 	public void setKostenInStd(String kostenInStd) {
-		this.kostenInStd = kostenInStd;
+		System.out.println("set kosten in std " + kostenInStd);
+		this.kostenInStd = kostenInStd.replace("h", "").trim();
 	}
 
 	/**
 	 * @return the kostenInEuro
 	 */
 	public String getKostenInEuro() {
-		if (kostenInEuro.compareTo("") == 0) {
+		System.out.println("get kosten in euro " + kostenInEuro);
+		if (!this.kostenInStd.replace("h", "").trim().isEmpty() && isSwitched) {
+			this.kostenInEuro = ""
+					+ Math.round(Float.parseFloat(this.kostenInStd
+							.replace("h", "").replace(",", ".").trim()) * 70f * 10f)
+					/ 10;
+			isSwitched = false;
+		} else if (kostenInEuro.replace("‚Ç¨", "").trim().isEmpty()) {
 			return kostenInEuro;
-		} else {
-			return kostenInEuro + " €";
 		}
+
+		return kostenInEuro + " ‚Ç¨";
 	}
 
 	/**
@@ -77,9 +97,10 @@ public class KostenBean implements Serializable {
 	 *            the kostenInEuro to set
 	 */
 	public void setKostenInEuro(String kostenInEuro) {
-		this.kostenInEuro = kostenInEuro.replace("€", "").trim();// entfernt
+		System.out.println("set kosten in ‚Ç¨ " + kostenInEuro);
+		this.kostenInEuro = kostenInEuro.replace("‚Ç¨", "").trim();// entfernt
 																	// eventuelles
-																	// €-Zeichen
+																	// ‚Ç¨-Zeichen
 	}
 
 	/**
@@ -151,11 +172,12 @@ public class KostenBean implements Serializable {
 	public void switchKosten(ActionEvent e) {
 		abrechnungInEuro = !abrechnungInEuro;
 		abrechnungInStd = !abrechnungInStd;
+		isSwitched = true;
 	}
 
 	/**
-	 * Überprüft die eingegeben Kosten in Euro nach "," und wandelt diesen in
-	 * "." um damit ein gültiger Zahlenwert entsteht
+	 * ‚Ä†berpr≈∏ft die eingegeben Kosten in Euro nach "," und wandelt diesen in
+	 * "." um damit ein g≈∏ltiger Zahlenwert entsteht
 	 * 
 	 * @return kosten in euro
 	 */
@@ -176,8 +198,8 @@ public class KostenBean implements Serializable {
 	}
 
 	/**
-	 * Überprüft die eingegeben Kosten in Stunden nach "," und wandelt diesen in
-	 * "." um damit ein gültiger Zahlenwert entsteht
+	 * ‚Ä†berpr≈∏ft die eingegeben Kosten in Stunden nach "," und wandelt diesen in
+	 * "." um damit ein g≈∏ltiger Zahlenwert entsteht
 	 * 
 	 * @return kosten in Stunden
 	 */
