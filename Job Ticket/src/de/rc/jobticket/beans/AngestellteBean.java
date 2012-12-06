@@ -34,6 +34,7 @@ public class AngestellteBean implements Serializable {
 	private List<Boolean> shouldOutputtextRender;
 	private List<Boolean> shouldInputtextRender;
 	private List<Boolean> shouldButtonRender;
+	private List<KostenBean> kostenSammlung;
 	private boolean dlgShouldBeHidden;
 
 	/**
@@ -42,6 +43,7 @@ public class AngestellteBean implements Serializable {
 	public AngestellteBean() {
 
 		angestelltenSammlung = new ArrayList<AngestellteModel>();
+		kostenSammlung = new ArrayList<KostenBean>();
 		// AngestellteModel a = new AngestellteModel(this);
 		// a.setAngestelltenbezeichnung("Angestellter");
 		// a.setAngestellte_name("Klaus Günther");

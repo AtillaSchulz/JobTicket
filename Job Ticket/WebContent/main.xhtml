@@ -309,7 +309,7 @@
 							value="#{mainBean.angestellteBean.angestelltenSammlung}">
 							<p:commandButton styleClass="angestellteLöschenButton" value="-"
 								rendered="#{mainBean.angestellteModel.renderMinus}"
-								actionListener="#{mainBean.angestellteBean.deleteAngestellten}"
+								actionListener="#{mainBean.deleteAngestelltenUKosten}"
 								update=":mainForm:aufwandGrid" />
 						</ui:repeat>
 					</p:column>
@@ -346,31 +346,31 @@
 						</ui:repeat>
 					</p:column>
 					<p:column styleClass="aufwandOutPutColumn">
-						<ui:repeat var="angestellter"
-							value="#{mainBean.angestellteBean.angestelltenSammlung}">
+						<ui:repeat var="kosten"
+							value="#{mainBean.kostensammlung}">
 							<div>
 								<h:outputLabel value="Aufwand in €"
-									rendered="#{mainBean.kostenBean.abrechnungInEuro}"
+									rendered="#{kosten.abrechnungInEuro}"
 									for="kostenInEuro" styleClass="outputLabel" />
 								<h:outputLabel value="Aufwand in Std"
-									rendered="#{mainBean.kostenBean.abrechnungInStd}"
+									rendered="#{kosten.abrechnungInStd}"
 									styleClass="outputLabel" />
 							</div>
 						</ui:repeat>
 					</p:column>
 					<p:column styleClass="aufwandInPutColumn">
-						<ui:repeat var="angestellter"
-							value="#{mainBean.angestellteBean.angestelltenSammlung}">
+						<ui:repeat var="kosten"
+							value="#{mainBean.kostensammlung}">
 							<div>
 								<p:inputText id="kostenInEuro"
-									rendered="#{mainBean.kostenBean.abrechnungInEuro}"
-									value="#{mainBean.kostenBean.kostenInEuro}"
+									rendered="#{kosten.abrechnungInEuro}"
+									value="#{kosten.kostenInEuro}"
 									styleClass="aufwandInPutField">
 									<p:ajax event="blur" update="kostenInEuro" />
 								</p:inputText>
 								<p:inputText id="kostenInStd"
-									rendered="#{mainBean.kostenBean.abrechnungInStd}"
-									value="#{mainBean.kostenBean.kostenInStd}"
+									rendered="#{kosten.abrechnungInStd}"
+									value="#{kosten.kostenInStd}"
 									styleClass="aufwandInPutField">
 									<p:ajax event="blur" update="kostenInStd" />
 								</p:inputText>
@@ -378,12 +378,12 @@
 						</ui:repeat>
 					</p:column>
 					<p:column styleClass="aufwandButtonColumn">
-						<ui:repeat var="angestellter"
-							value="#{mainBean.angestellteBean.angestelltenSammlung}">
+						<ui:repeat var="kosten"
+							value="#{mainBean.kostensammlung}">
 							<div>
 								<p:commandButton value="€" styleClass="aufwandButton"
 									id="kostenButton" update=":mainForm:aufwandGrid"
-									actionListener="#{mainBean.kostenBean.switchKosten}" />
+									actionListener="#{kosten.switchKosten}" />
 							</div>
 						</ui:repeat>
 					</p:column>
@@ -393,7 +393,7 @@
 					<p:column></p:column>
 					<p:column>
 						<p:commandButton value="+" styleClass="produktPlusButton"
-							actionListener="#{mainBean.angestellteBean.addAngestellten}"
+							actionListener="#{mainBean.addAngestelltenUKosten}"
 							update=":mainForm:aufwandGrid" />
 						<p:commandButton value="-" styleClass="minusButton"
 							actionListener="#{mainBean.angestellteModel.renderMinusButton}"

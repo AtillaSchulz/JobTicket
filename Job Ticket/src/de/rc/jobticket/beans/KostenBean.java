@@ -36,7 +36,6 @@ public class KostenBean implements Serializable {
 	private boolean abrechnungInEuro;
 	private boolean abrechnungInStd;
 	private boolean isSwitched;
-
 	/**
 	 * Setzt Standartwerte
 	 */

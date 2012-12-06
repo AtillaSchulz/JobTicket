@@ -1,7 +1,11 @@
 package de.rc.jobticket.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
+import javax.faces.event.ActionEvent;
 
 import de.rc.AngestellteModel;
 import de.rc.DBZugriff;
@@ -35,6 +39,7 @@ public class MainBean implements Serializable {
 	private KundenBean kundenBean;
 	private AngestellteModel angestellteModel;
 	private AngestellteBean angestellteBean;
+	private List<KostenBean> kostensammlung;
 	private DBZugriff dbAccess;
 	private KostenBean kostenBean;
 
@@ -46,9 +51,10 @@ public class MainBean implements Serializable {
 		jobBean = new JobBean();
 		kundenBean = new KundenBean();
 		angestellteBean = new AngestellteBean();
-		angestellteModel = new AngestellteModel(angestellteBean);
 		kostenBean = new KostenBean();
 		dbAccess = new DBZugriff();
+		angestellteModel = new AngestellteModel();
+		kostensammlung = new ArrayList<KostenBean>();
 	}
 
 	/**
@@ -89,15 +95,7 @@ public class MainBean implements Serializable {
 	}
 
 	/**
-	 * @param jobBean
-	 *            the jobBean to set
-	 */
-	public void setJobBean(JobBean jobBean) {
-		this.jobBean = jobBean;
-	}
-
-	/**
-	 * @return the angestellteBean
+	 * @return the angestellteModel
 	 */
 	public AngestellteModel getAngestellteModel() {
 		return angestellteModel;
@@ -105,10 +103,18 @@ public class MainBean implements Serializable {
 
 	/**
 	 * @param angestellteModel
-	 *            the angestellteBean to set
+	 *            the angestellteModel to set
 	 */
 	public void setAngestellteModel(AngestellteModel angestellteModel) {
 		this.angestellteModel = angestellteModel;
+	}
+
+	/**
+	 * @param jobBean
+	 *            the jobBean to set
+	 */
+	public void setJobBean(JobBean jobBean) {
+		this.jobBean = jobBean;
 	}
 
 	/**
@@ -124,6 +130,21 @@ public class MainBean implements Serializable {
 	 */
 	public void setKostenBean(KostenBean kostenBean) {
 		this.kostenBean = kostenBean;
+	}
+
+	/**
+	 * @return the kostensammlung
+	 */
+	public List<KostenBean> getKostensammlung() {
+		return kostensammlung;
+	}
+
+	/**
+	 * @param kostensammlung
+	 *            the kostensammlung to set
+	 */
+	public void setKostensammlung(List<KostenBean> kostensammlung) {
+		this.kostensammlung = kostensammlung;
 	}
 
 	/**
@@ -149,18 +170,18 @@ public class MainBean implements Serializable {
 	 *            der zum Jobbearbeiter dazugeh�rige Job
 	 * @return Jobbearbeiter aus der Datenbank
 	 */
-	private Jobbearbeiter erstelleJobbearbeiter(Job job) {
+	private Jobbearbeiter erstelleJobbearbeiter(Job job,
+			AngestellteModel angeModel) {
 		Jobbearbeiter jobbe_return = null;
 		try {
 			Jobbearbeiter jobbearbeiter = new Jobbearbeiter();
 
 			// Wenn kein Angestellter eingetragen wurde
-			if (angestellteModel.getAngestellte_name().trim().compareTo("") == 0) {
+			if (angeModel.getAngestellte_name().trim().compareTo("") == 0) {
 				return null;
 			}
-			Angestellte ange = dbAccess
-					.findAngestelltenWithFullname(angestellteModel
-							.getAngestellte_name());
+			Angestellte ange = dbAccess.findAngestelltenWithFullname(angeModel
+					.getAngestellte_name());
 
 			if (ange == null) {
 				throw new Exception(
@@ -188,18 +209,18 @@ public class MainBean implements Serializable {
 	 * @return Kosten aus der Datenbank
 	 */
 
-	private Kosten erstelleKosten(Job job) {
+	private Kosten erstelleKosten(Job job, AngestellteModel angeModel,
+			KostenBean kostenBean) {
 		Kosten kosten_return = null;
 		try {
 			Kosten kosten = new Kosten();
 
 			// Wenn kein Angestellter eingetragen wurde
-			if (angestellteModel.getAngestellte_name().trim().compareTo("") == 0) {
+			if (angeModel.getAngestellte_name().trim().compareTo("") == 0) {
 				return null;
 			}
-			Angestellte ange = dbAccess
-					.findAngestelltenWithFullname(angestellteModel
-							.getAngestellte_name());
+			Angestellte ange = dbAccess.findAngestelltenWithFullname(angeModel
+					.getAngestellte_name());
 
 			if (ange == null) {
 				throw new Exception(
@@ -227,6 +248,19 @@ public class MainBean implements Serializable {
 		return kosten_return;
 	}
 
+	public void addAngestelltenUKosten() {
+		angestellteBean.addAngestellten();
+		kostensammlung.add(new KostenBean());
+	}
+
+	public void deleteAngestelltenUKosten(ActionEvent e) {
+		angestellteBean.getAngestelltenSammlung().remove(
+				Integer.parseInt(e.getComponent().getClientId().split(":")[2]));
+		kostensammlung.remove(Integer.parseInt(e.getComponent().getClientId()
+				.split(":")[2]));
+
+	}
+
 	/**
 	 * Speichert alle Eintr�ge zu einem Job in die Datenbank
 	 * 
@@ -234,18 +268,25 @@ public class MainBean implements Serializable {
 	public void speichern() {
 		Job job_db = jobBean.erstelleJob();
 		if (job_db != null) {
-			Jobbearbeiter jobbearbeiter = erstelleJobbearbeiter(job_db);
+			for (int j = 0; j < angestellteBean.getAngestelltenSammlung()
+					.size(); j++) {
+				Jobbearbeiter jobbearbeiter = erstelleJobbearbeiter(job_db,
+						angestellteBean.getAngestelltenSammlung().get(j));
 
-			if (jobbearbeiter != null) {
-				job_db.getJobbearbeiters().add(jobbearbeiter);
+				if (jobbearbeiter != null) {
+					job_db.getJobbearbeiters().add(jobbearbeiter);
 
-				Kosten kosten = erstelleKosten(job_db);
-				if (kosten != null) {
-					job_db.getKostens().add(kosten);
+					Kosten kosten = erstelleKosten(job_db, angestellteBean
+							.getAngestelltenSammlung().get(j),
+							kostensammlung.get(j));
+					if (kosten != null) {
+						job_db.getKostens().add(kosten);
+					}
 				}
-			}
-			for (int i = 0; i < produktBean.getProduktSammlung().size(); i++) {
-				produktBean.getProduktSammlung().get(i).erstelleProdukt(job_db);
+				for (int i = 0; i < produktBean.getProduktSammlung().size(); i++) {
+					produktBean.getProduktSammlung().get(i)
+							.erstelleProdukt(job_db);
+				}
 			}
 		}
 		System.out.println("fertig");

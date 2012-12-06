@@ -1,11 +1,11 @@
-Sat Oct 27 16:23:21 CEST 2012 : Apache Derby Network Server 10.9.1.0 - (1344872) wurde gestartet und ist bereit, Verbindungen am Port 1527 zu akzeptieren.
+Thu Dec 06 18:55:16 CET 2012 : Apache Derby Network Server 10.9.1.0 - (1344872) wurde gestartet und ist bereit, Verbindungen am Port 1527 zu akzeptieren.
 ----------------------------------------------------------------
-Sat Oct 27 16:25:16 CEST 2012:
-Booten von Derby Version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): Instanz a816c00e-013a-a29b-0a59-ffffcd3f2eca
+Thu Dec 06 18:55:23 CET 2012:
+Booten von Derby Version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): Instanz a816c00e-013b-715b-7201-ffffcd3f2eca
 für Datenbankverzeichnis C:\Users\Shiru\git\JobTicket\Job Ticket\jobticket   mit Klassenladeprogrammn sun.misc.Launcher$AppClassLoader@12498b5
 
 java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_07-b10
+java.runtime.version=1.7.0_09-b05
 user.dir=C:\Users\Shiru\git\JobTicket\Job Ticket
 derby.system.home=C:\Users\Shiru\git\JobTicket\Job Ticket
 Das Ladeprogramm für Datenbankklassen wurde gestartet - derby.database.classpath=''
