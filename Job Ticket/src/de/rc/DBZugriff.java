@@ -40,12 +40,12 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Gibt einem eine komplette Liste der jeweiligen Tabelle zurŸck.
+	 * Gibt einem eine komplette Liste der jeweiligen Tabelle zurï¿½ck.
 	 * 
 	 * @param c
 	 *            Klasse der Tabelle
 	 * @param em
-	 *            EntityManager fŸr die Verbindung
+	 *            EntityManager fï¿½r die Verbindung
 	 * @return die Liste mit den Daten
 	 */
 	@SuppressWarnings("unchecked")
@@ -81,7 +81,7 @@ public class DBZugriff implements Serializable {
 	 * @param bezeichnung
 	 *            nach der zu suchenden Bezeichnung
 	 * @return gibt, falls gefunden(!=null), die Bezeichnung aus der Datenbank
-	 *         zurŸck.
+	 *         zurï¿½ck.
 	 */
 	public Angestelltenbezeichnungen findAngestelltenbezeichnungen(
 			String bezeichnung) {
@@ -104,7 +104,7 @@ public class DBZugriff implements Serializable {
 	 * @param bezeichnung
 	 *            nach der zu suchenden Bezeichnung
 	 * @return gibt, falls gefunden(!=null), die Bezeichnung aus der Datenbank
-	 *         zurŸck.
+	 *         zurï¿½ck.
 	 */
 	public Kunden findKundenWithName(String kundenname) {
 		Kunden kunde = null;
@@ -125,7 +125,7 @@ public class DBZugriff implements Serializable {
 	 * @param bezeichnung
 	 *            nach der zu suchenden Bezeichnung
 	 * @return gibt, falls gefunden(!=null), die Bezeichnung aus der Datenbank
-	 *         zurŸck.
+	 *         zurï¿½ck.
 	 */
 	public Kunden findKundenWithKuerzel(String kundenkuerzel) {
 		Kunden kunde = null;
@@ -190,13 +190,13 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Sucht mit Hilfe des Ÿbergebenen Teilstrings, die dazu passenden
-	 * Angestelltenbezichnungen. HierfŸr wird eine Charsquenz verwendet damit
+	 * Sucht mit Hilfe des ï¿½bergebenen Teilstrings, die dazu passenden
+	 * Angestelltenbezichnungen. Hierfï¿½r wird eine Charsquenz verwendet damit
 	 * auch teile innerhalb von Bezeichnungen wiedererkannt werden.
 	 * 
 	 * @param bez
 	 *            Teilstring
-	 * @return die gefundenen EintrŠge die mit dem Teilstring Ÿbereinstimmen.
+	 * @return die gefundenen Eintrï¿½ge die mit dem Teilstring ï¿½bereinstimmen.
 	 */
 	public List<String> completeAngestelltenbezeichnung(String bez) {
 		List<Angestelltenbezeichnungen> list = getDatalist(
@@ -213,13 +213,13 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Sucht mit Hilfe des Ÿbergebenen Teilstrings, die dazu passenden
-	 * Kudennamen. HierfŸr wird eine Charsquenz verwendet damit auch teile
+	 * Sucht mit Hilfe des ï¿½bergebenen Teilstrings, die dazu passenden
+	 * Kudennamen. Hierfï¿½r wird eine Charsquenz verwendet damit auch teile
 	 * innerhalb von Bezeichnungen wiedererkannt werden.
 	 * 
 	 * @param kundenname
 	 *            Teilstring
-	 * @return die gefundenen EintrŠge die mit dem Teilstring Ÿbereinstimmen.
+	 * @return die gefundenen Eintrï¿½ge die mit dem Teilstring ï¿½bereinstimmen.
 	 */
 	public List<String> completeKundennamen(String kundenname) {
 		List<Kunden> list = getDatalist(Kunden.class, createEntitymanager());
@@ -235,13 +235,13 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Sucht mit Hilfe des Ÿbergebenen Teilstrings, die dazu passenden
-	 * Kudennamen. HierfŸr wird eine Charsquenz verwendet damit auch teile
+	 * Sucht mit Hilfe des ï¿½bergebenen Teilstrings, die dazu passenden
+	 * Kudennamen. Hierfï¿½r wird eine Charsquenz verwendet damit auch teile
 	 * innerhalb von Bezeichnungen wiedererkannt werden.
 	 * 
 	 * @param kundenname
 	 *            Teilstring
-	 * @return die gefundenen EintrŠge die mit dem Teilstring Ÿbereinstimmen.
+	 * @return die gefundenen Eintrï¿½ge die mit dem Teilstring ï¿½bereinstimmen.
 	 */
 	public List<String> completeKundenkuerzel(String kundenname) {
 		List<Kunden> list = getDatalist(Kunden.class, createEntitymanager());
@@ -257,13 +257,13 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Sucht mit Hilfe des Ÿbergebenen Teilstrings, die dazu passenden
-	 * Angestelltennamen. HierfŸr wird eine Charsquenz verwendet damit auch
+	 * Sucht mit Hilfe des ï¿½bergebenen Teilstrings, die dazu passenden
+	 * Angestelltennamen. Hierfï¿½r wird eine Charsquenz verwendet damit auch
 	 * teile innerhalb von Bezeichnungen wiedererkannt werden.
 	 * 
 	 * @param angestelltenname
 	 *            Teilstring
-	 * @return die gefundenen EintrŠge die mit dem Teilstring Ÿbereinstimmen.
+	 * @return die gefundenen Eintrï¿½ge die mit dem Teilstring ï¿½bereinstimmen.
 	 */
 	public List<String> completeAngestelltenname(String angestellenname) {
 		List<Angestellte> list = getDatalist(Angestellte.class,
@@ -288,7 +288,7 @@ public class DBZugriff implements Serializable {
 	 * @param Angestelltenname
 	 *            nach der zu suchenden Bezeichnung
 	 * @return gibt, falls gefunden(!=null), die Bezeichnung aus der Datenbank
-	 *         zurŸck.
+	 *         zurï¿½ck.
 	 */
 	public Angestellte findAngestelltenWithFullname(String angestellenname) {
 		Angestellte angestellter = null;
@@ -298,6 +298,7 @@ public class DBZugriff implements Serializable {
 		for (int i = 0; i < list.size(); i++) {
 			String namekomplett = list.get(i).getVorname() + " "
 					+ list.get(i).getNachname();
+			
 			if (namekomplett.toLowerCase().compareTo(
 					angestellenname.toLowerCase()) == 0) {
 				angestellter = list.get(i);
@@ -308,17 +309,17 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * fŸgt ein Element hinzu, sofern dieses noch nicht in der datenbank
+	 * fï¿½gt ein Element hinzu, sofern dieses noch nicht in der datenbank
 	 * voarhanden ist. Vorraussetzung ist, dass das Element auch Comparable ist
 	 * 
 	 * @param comparator
 	 *            das zu vergleichende Element
 	 * @param em
-	 *            der EntityManager Ÿber den die Daten zum vergleich geholt
+	 *            der EntityManager ï¿½ber den die Daten zum vergleich geholt
 	 *            werden
-	 * @return false: wenn die person schon vorhanden ist und nicht hinzugefŸght
+	 * @return false: wenn die person schon vorhanden ist und nicht hinzugefï¿½ght
 	 *         werden kann<br>
-	 *         true: wenn das Element hinzugefŸgt wurde
+	 *         true: wenn das Element hinzugefï¿½gt wurde
 	 */
 	@SuppressWarnings("unchecked")
 	public boolean addElement(Comparable comparator, EntityManager em) {
@@ -349,7 +350,7 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * FŸgt ein jobticket in die Datenbank ein
+	 * Fï¿½gt ein jobticket in die Datenbank ein
 	 * 
 	 * @param job
 	 *            das jobticket
@@ -361,7 +362,7 @@ public class DBZugriff implements Serializable {
 		try {
 			try {
 				em.getTransaction().begin();
-				em.persist(job);
+				em.merge(job);
 				em.getTransaction().commit();
 			} finally {
 				em.close();
@@ -376,7 +377,7 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * FŸgt einen Eintrag in die Datenbank ein
+	 * Fï¿½gt einen Eintrag in die Datenbank ein
 	 * 
 	 * @param Identifizierbar
 	 *            der Eintrag
@@ -399,14 +400,14 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Entfernt das Ÿbergebene identifizierbare Objekt aus der Datenbank DafŸr
+	 * Entfernt das ï¿½bergebene identifizierbare Objekt aus der Datenbank Dafï¿½r
 	 * muss das Interface Identifizierbar implementiert sein, wodurch man an die
 	 * Eigentliche ID des Eintrages kommt.
 	 * 
 	 * @param ident
 	 *            das zu entfernende Objekt
 	 * @param em
-	 *            Manager fŸr die datenbank
+	 *            Manager fï¿½r die datenbank
 	 * @return true falls es entfernt wurde
 	 */
 	public boolean removeElement(Identifizierbar ident, EntityManager em) {
@@ -452,15 +453,15 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Entfernt ein Objekt der Klasse mit dem dazu gehšrigen Primary key
+	 * Entfernt ein Objekt der Klasse mit dem dazu gehï¿½rigen Primary key
 	 * 
 	 * @param c
-	 *            die klasse des zu lšschenden Objektes
+	 *            die klasse des zu lï¿½schenden Objektes
 	 * @param id
 	 *            der Primary Key
 	 * @param em
 	 *            EntityManager
-	 * @return true wenn Objekt gelšscht wurde
+	 * @return true wenn Objekt gelï¿½scht wurde
 	 */
 	public <T> boolean removeElement(Class<T> c, int id, EntityManager em) {
 		try {
@@ -484,7 +485,7 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Updated alle Eigenschaften von job die geŠndert werden sollen
+	 * Updated alle Eigenschaften von job die geï¿½ndert werden sollen
 	 * 
 	 * @param job
 	 *            das geupdatete Objekt
@@ -524,7 +525,7 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Updated alle Eigenschaften von jobbearbeiter die geŠndert werden sollen
+	 * Updated alle Eigenschaften von jobbearbeiter die geï¿½ndert werden sollen
 	 * 
 	 * @param jobbearbeiter
 	 *            das geupdatete Objekt
@@ -555,7 +556,7 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Updated alle Eigenschaften von produkteigenschaften die geŠndert werden
+	 * Updated alle Eigenschaften von produkteigenschaften die geï¿½ndert werden
 	 * sollen
 	 * 
 	 * @param produkteigenschaften
@@ -610,7 +611,7 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Updated alle Eigenschaften von Angestelltenbezeichnungen die geŠndert
+	 * Updated alle Eigenschaften von Angestelltenbezeichnungen die geï¿½ndert
 	 * werden sollen
 	 * 
 	 * @param bezeichnungen
@@ -642,7 +643,7 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Updated alle Eigenschaften von Angestellte die geŠndert werden sollen
+	 * Updated alle Eigenschaften von Angestellte die geï¿½ndert werden sollen
 	 * 
 	 * @param angestellte
 	 *            das geupdatete Objekt
@@ -680,7 +681,7 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Updated alle Eigenschaften von Kosten die geŠndert werden sollen
+	 * Updated alle Eigenschaften von Kosten die geï¿½ndert werden sollen
 	 * 
 	 * @param kosten
 	 *            das geupdatete Objekt
@@ -712,7 +713,7 @@ public class DBZugriff implements Serializable {
 	}
 
 	/**
-	 * Updated alle Eigenschaften von Kunden die geŠndert werden sollen
+	 * Updated alle Eigenschaften von Kunden die geï¿½ndert werden sollen
 	 * 
 	 * @param kunden
 	 *            das geupdatete Objekt

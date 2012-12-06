@@ -4,8 +4,21 @@ package de.rc;
  * 
  */
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.el.ValueBinding;
+import javax.faces.event.AbortProcessingException;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.FacesEvent;
+import javax.faces.event.FacesListener;
+import javax.faces.render.Renderer;
+
 import de.rc.jobticket.beans.AngestellteBean;
 import de.rc.jobticket.entities.Angestellte;
 import de.rc.jobticket.entities.Angestelltenbezeichnungen;
@@ -13,7 +26,7 @@ import de.rc.jobticket.entities.Angestelltenbezeichnungen;
 /**
  * juni 2012
  * <p>
- * Modelklasse fŸr die Angestellten
+ * Modelklasse fï¿½r die Angestellten
  * </p>
  * 
  * @author janine & atilla
@@ -42,7 +55,6 @@ public class AngestellteModel implements Serializable {
 	 */
 	public AngestellteModel() {
 		dbAccess = new DBZugriff();
-
 	}
 
 	/**
@@ -55,7 +67,7 @@ public class AngestellteModel implements Serializable {
 	}
 
 	/**
-	 * Trigger fŸr das Anzeigen der Angestelltentabelle wird im Hauptlayout
+	 * Trigger fï¿½r das Anzeigen der Angestelltentabelle wird im Hauptlayout
 	 * nicht verwendet
 	 */
 	public void zeigeTabelle() {
@@ -63,30 +75,30 @@ public class AngestellteModel implements Serializable {
 	}
 
 	/**
-	 * Autokomplete fŸr die Angestelltenbezeichnung
+	 * Autokomplete fï¿½r die Angestelltenbezeichnung
 	 * 
 	 * @param str
 	 *            die im Layout eingegebenen Buchstaben
-	 * @return eine Liste der Ÿbereinstimmenden EintrŠge aus der Datenbank
+	 * @return eine Liste der ï¿½bereinstimmenden Eintrï¿½ge aus der Datenbank
 	 */
 	public List<String> completeAngestelltenbezeichnung(String str) {
 		return dbAccess.completeAngestelltenbezeichnung(str);
 	}
 
 	/**
-	 * Autokomplete fŸr den Angestelltennamen
+	 * Autokomplete fï¿½r den Angestelltennamen
 	 * 
 	 * @param str
 	 *            die im Layout eingegebenen Buchstaben
-	 * @return eine Liste der Ÿbereinstimmenden EintrŠge aus der Datenbank
+	 * @return eine Liste der ï¿½bereinstimmenden Eintrï¿½ge aus der Datenbank
 	 */
 	public List<String> completeAngestelltenname(String str) {
 		return dbAccess.completeAngestelltenname(str);
 	}
 
 	/**
-	 * Erstellt fals mšglich einen Angestellten †berprŸft ob die Pflichtfelder
-	 * ausgefŸllt wurden und gibt gegebenfals eine Fehlermeldung zurŸck
+	 * Erstellt fals mï¿½glich einen Angestellten ï¿½berprï¿½ft ob die Pflichtfelder
+	 * ausgefï¿½llt wurden und gibt gegebenfals eine Fehlermeldung zurï¿½ck
 	 */
 	public void erstelleAngestellte() {
 		if (angestelltenbezeichnung.trim().compareTo("") == 0) {
@@ -133,7 +145,19 @@ public class AngestellteModel implements Serializable {
 	 * @return angestelltenbezeichnung
 	 */
 	public String getAngestelltenbezeichnung() {
+
+		 Angestellte a = null;
+		
+		 if((angestellte_name!=null) && (!angestellte_name.isEmpty())){
+		 System.err.println("ist doch gar nicht leer !!!!!!!!!!!!!!!");
+		 a = dbAccess.findAngestelltenWithFullname(angestellte_name);
+		 }
+		 if (a != null) {
+		 return a.getAngestelltenbezeichnungen().getBezeichnung();
+		 } else {
 		return angestelltenbezeichnung;
+		 }
+		 
 	}
 
 	/**
@@ -297,8 +321,9 @@ public class AngestellteModel implements Serializable {
 	public boolean isRenderMinus() {
 		return renderMinus;
 	}
+
 	/**
-	 * Trigger fŸr das Darstellen der AngestelltenMinusButtons
+	 * Trigger fï¿½r das Darstellen der AngestelltenMinusButtons
 	 */
 
 	public void renderMinusButton() {

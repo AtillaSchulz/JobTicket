@@ -1,4 +1,6 @@
 package de.rc.jobticket.entities;
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.io.Serializable;
 
 import javax.persistence.*;
@@ -20,6 +22,7 @@ public class Job implements Serializable, Identifizierbar, Comparable<Job> {
 
 	@Id
 	@Column(unique = true, nullable = false)
+	@GeneratedValue(strategy = IDENTITY)
 	private int id;
 
 	@Column(name = "alte_jobnummer")

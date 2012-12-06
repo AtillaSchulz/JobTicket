@@ -17,7 +17,7 @@ import de.rc.jobticket.entities.Kosten;
 /**
  * juni 2012
  * <p>
- * Haubtverwaltungsklasse fŸr alle UnterBeans
+ * Haubtverwaltungsklasse fï¿½r alle UnterBeans
  * </p>
  * 
  * @author janine und atilla
@@ -45,8 +45,8 @@ public class MainBean implements Serializable {
 		produktBean = new ProduktBean();
 		jobBean = new JobBean();
 		kundenBean = new KundenBean();
-		angestellteModel = new AngestellteModel();
 		angestellteBean = new AngestellteBean();
+		angestellteModel = new AngestellteModel(angestellteBean);
 		kostenBean = new KostenBean();
 		dbAccess = new DBZugriff();
 	}
@@ -142,11 +142,11 @@ public class MainBean implements Serializable {
 	}
 
 	/**
-	 * Erstellt einen Jobbearbeiter der fŸr die Zuordung von Angestellten und
+	 * Erstellt einen Jobbearbeiter der fï¿½r die Zuordung von Angestellten und
 	 * Job verantwortlich ist ( SQL many-to-many)
 	 * 
 	 * @param job
-	 *            der zum Jobbearbeiter dazugehšrige Job
+	 *            der zum Jobbearbeiter dazugehï¿½rige Job
 	 * @return Jobbearbeiter aus der Datenbank
 	 */
 	private Jobbearbeiter erstelleJobbearbeiter(Job job) {
@@ -181,10 +181,10 @@ public class MainBean implements Serializable {
 
 	/**
 	 * Erstellt die Kosten die pro Job und pro Angestellten erzeugt werden
-	 * kšnnen ( SQL many-to-many)
+	 * kï¿½nnen ( SQL many-to-many)
 	 * 
 	 * @param job
-	 *            der zu den Kosten dazugehšrige Job
+	 *            der zu den Kosten dazugehï¿½rige Job
 	 * @return Kosten aus der Datenbank
 	 */
 
@@ -228,7 +228,7 @@ public class MainBean implements Serializable {
 	}
 
 	/**
-	 * Speichert alle EintrŠge zu einem Job in die Datenbank
+	 * Speichert alle Eintrï¿½ge zu einem Job in die Datenbank
 	 * 
 	 */
 	public void speichern() {
@@ -247,8 +247,8 @@ public class MainBean implements Serializable {
 			for (int i = 0; i < produktBean.getProduktSammlung().size(); i++) {
 				produktBean.getProduktSammlung().get(i).erstelleProdukt(job_db);
 			}
-		}System.out.println("fertig");
+		}
+		System.out.println("fertig");
 	}
-
 
 }

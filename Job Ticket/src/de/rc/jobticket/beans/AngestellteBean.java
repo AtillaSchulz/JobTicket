@@ -42,18 +42,19 @@ public class AngestellteBean implements Serializable {
 	public AngestellteBean() {
 
 		angestelltenSammlung = new ArrayList<AngestellteModel>();
-		AngestellteModel a = new AngestellteModel(this);
-		a.setAngestelltenbezeichnung("Angestellter");
-		a.setAngestellte_name("Klaus Günther");
-		angestelltenSammlung.add(a);
-		a = new AngestellteModel();
-		a.setAngestelltenbezeichnung("Grafiker");
-		a.setAngestellte_name("Olaf Ziegler");
-		angestelltenSammlung.add(a);
+		// AngestellteModel a = new AngestellteModel(this);
+		// a.setAngestelltenbezeichnung("Angestellter");
+		// a.setAngestellte_name("Klaus Günther");
+		// angestelltenSammlung.add(a);
+		// a = new AngestellteModel();
+		// a.setAngestelltenbezeichnung("Grafiker");
+		// a.setAngestellte_name("Olaf Ziegler");
+		// angestelltenSammlung.add(a);
 
 		createColumns();
 
 	}
+
 	/**
 	 * F�gt einen leeren Angestellten hinzu
 	 */
@@ -174,6 +175,7 @@ public class AngestellteBean implements Serializable {
 	public void setShouldButtonRender(List<Boolean> shouldButtonRender) {
 		this.shouldButtonRender = shouldButtonRender;
 	}
+
 	/**
 	 * L�scht einen ausgew�hlten Angestellten
 	 */
