@@ -1,24 +1,26 @@
+/*
+* This file is part of Job Ticket, a software system for managing
+* the orders done by the worker.
+*
+* Copyright (C) 2013 Atilla Schulz & Janine Naumann
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
 package de.rc;
 
-/**
- * 
- */
-
-import java.io.IOException;
 import java.io.Serializable;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.el.ValueBinding;
-import javax.faces.event.AbortProcessingException;
-import javax.faces.event.ActionEvent;
-import javax.faces.event.FacesEvent;
-import javax.faces.event.FacesListener;
-import javax.faces.render.Renderer;
-
 import de.rc.jobticket.beans.AngestellteBean;
 import de.rc.jobticket.entities.Angestellte;
 import de.rc.jobticket.entities.Angestelltenbezeichnungen;

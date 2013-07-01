@@ -1,12 +1,29 @@
+/*
+ * This file is part of Job Ticket, a software system for managing
+ * the orders done by the worker.
+ *
+ * Copyright (C) 2013 Atilla Schulz & Janine Naumann
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 package de.rc.jobticket.beans;
+
 import java.io.Serializable;
 import java.util.List;
-
 import javax.faces.bean.ManagedBean;
-
 import de.rc.DBZugriff;
 import de.rc.jobticket.entities.Kunden;
-
 
 /**
  * 
@@ -14,7 +31,10 @@ import de.rc.jobticket.entities.Kunden;
 
 /**
  * juni 2012
- * <p>Verwaltungsklasse fŸr die Kunden zwischen Layout und Datenbank</p>
+ * <p>
+ * Verwaltungsklasse fï¿½r die Kunden zwischen Layout und Datenbank
+ * </p>
+ * 
  * @author janine & atilla
  * 
  */
@@ -43,17 +63,17 @@ public class KundenBean implements Serializable {
 	}
 
 	/**
-	 * Trigger fŸr das Anzeigen der Kundentabelle
-	 * wird im Hauptlayout nicht verwendet
+	 * Trigger fï¿½r das Anzeigen der Kundentabelle wird im Hauptlayout nicht
+	 * verwendet
 	 */
 	public void zeigeTabelle() {
 		showTable = true;
 	}
-	
 
 	/**
-	 * †berprŸft die Eingabefelder der KundeneintrŠge und gibt dazugehšrige Fehlermeldungen aus
-	 * Wenn EintrŠge vorhanden sind, speichert er diese in der Datenbank
+	 * ï¿½berprï¿½ft die Eingabefelder der Kundeneintrï¿½ge und gibt dazugehï¿½rige
+	 * Fehlermeldungen aus Wenn Eintrï¿½ge vorhanden sind, speichert er diese in
+	 * der Datenbank
 	 */
 	public void erstelleKunden() {
 		if (kunde_kunde.trim().compareTo("") == 0) {
@@ -63,7 +83,7 @@ public class KundenBean implements Serializable {
 			emptyField_kunde = false;
 		}
 		if (kunde_kuerzel.trim().compareTo("") == 0) {
-			System.err.println("KŸrzel ist leer.");
+			System.err.println("Kï¿½rzel ist leer.");
 			emptyField_kundenkuerzel = true;
 		} else {
 			emptyField_kundenkuerzel = false;
@@ -160,8 +180,8 @@ public class KundenBean implements Serializable {
 	}
 
 	/**
-	 * Gibt eine Liste aller Kunden zurŸck
-	 * wird im Hauptlayout nicht benutzt
+	 * Gibt eine Liste aller Kunden zurï¿½ck wird im Hauptlayout nicht benutzt
+	 * 
 	 * @return the kunden Liste der Kunden aus der Datenbank
 	 */
 	public List<Kunden> getKunden() {
@@ -222,6 +242,5 @@ public class KundenBean implements Serializable {
 	public void setEmptyField_kundenkuerzel(boolean emptyField_kundenkuerzel) {
 		this.emptyField_kundenkuerzel = emptyField_kundenkuerzel;
 	}
-
 
 }

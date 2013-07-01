@@ -1,11 +1,14 @@
-Thu Dec 06 18:55:16 CET 2012 : Apache Derby Network Server 10.9.1.0 - (1344872) wurde gestartet und ist bereit, Verbindungen am Port 1527 zu akzeptieren.
+Mon Jul 01 01:46:39 CEST 2013 : Apache Derby Network Server 10.10.1.1 - (1458268) wurde gestartet und ist bereit, Verbindungen auf Port 1527 zu akzeptieren.
 ----------------------------------------------------------------
-Thu Dec 06 18:55:23 CET 2012:
-Booten von Derby Version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): Instanz a816c00e-013b-715b-7201-ffffcd3f2eca
-für Datenbankverzeichnis C:\Users\Shiru\git\JobTicket\Job Ticket\jobticket   mit Klassenladeprogrammn sun.misc.Launcher$AppClassLoader@12498b5
-
+Mon Jul 01 01:48:29 CEST 2013:
+Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): Instanz a816c00e-013f-977b-2d16-ffffffd0a8c3
+für Datenbankverzeichnis D:\Users\Atilla\git\JobTicket\Job Ticket\jobticket mit Class Loader sun.misc.Launcher$AppClassLoader@16793542
+Geladen aus file:/D:/Program%20Files/Java/db-derby-10.10.1.1-bin/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_09-b05
-user.dir=C:\Users\Shiru\git\JobTicket\Job Ticket
-derby.system.home=C:\Users\Shiru\git\JobTicket\Job Ticket
-Das Ladeprogramm für Datenbankklassen wurde gestartet - derby.database.classpath=''
+java.runtime.version=1.7.0_17-b02
+user.dir=D:\Users\Atilla\git\JobTicket\Job Ticket
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=D:\Users\Atilla\git\JobTicket\Job Ticket
+Datenbank-Class Loader wurde gestartet - derby.database.classpath=''

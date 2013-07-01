@@ -1,6 +1,22 @@
-/**
- * 
- */
+/*
+* This file is part of Job Ticket, a software system for managing
+* the orders done by the worker.
+*
+* Copyright (C) 2013 Atilla Schulz & Janine Naumann
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
 package de.rc.jobticket.beans;
 
 import java.io.Serializable;
@@ -13,7 +29,7 @@ import de.rc.ProduktModel;
 
 /**
  *  juni 2012
- * <p>Verwaltungsklasse fŸr das Produkt zwischen Layout und Datenbank</p>
+ * <p>Verwaltungsklasse fï¿½r das Produkt zwischen Layout und Datenbank</p>
  * 
  * @author janine und atilla
  *
@@ -60,14 +76,14 @@ public class ProduktBean implements Serializable {
 		return showMinusProduktButton;
 	}
 	/**
-	 * Trigger fŸr den MinusProduktButton
+	 * Trigger fï¿½r den MinusProduktButton
 	 */
 
 	public void renderMinusProduktButton() {
 		showMinusProduktButton = !showMinusProduktButton;
 	}
 	/**
-	 * fŸgt ein leeres Produkt hinzu
+	 * fï¿½gt ein leeres Produkt hinzu
 	 */
 	
 	public void addProdukt() {
@@ -76,7 +92,7 @@ public class ProduktBean implements Serializable {
 	}
 	
 	/**
-	 * Lšscht ein ausgewŠhltes Produkt
+	 * Lï¿½scht ein ausgewï¿½hltes Produkt
 	 */
 	public void deleteProdukt(ActionEvent e) {
 		produktSammlung.remove(Integer.parseInt(e.getComponent()

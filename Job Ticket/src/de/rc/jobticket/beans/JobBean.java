@@ -1,4 +1,24 @@
+/*
+* This file is part of Job Ticket, a software system for managing
+* the orders done by the worker.
+*
+* Copyright (C) 2013 Atilla Schulz & Janine Naumann
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
 package de.rc.jobticket.beans;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,7 +34,7 @@ import de.rc.jobticket.entities.Produkteigenschaften;
 
 /**
  * juni 2012
- * <p>Verwaltungsklasse fŸr den Job zwischen Layout und Datenbank</p>
+ * <p>Verwaltungsklasse fï¿½r den Job zwischen Layout und Datenbank</p>
  * @author janine & atilla
  * 
  */
@@ -56,16 +76,16 @@ public class JobBean implements Serializable {
 	/**
 	 * Autokomplete des Kundennamens
 	 * @param str die im Layout eingegebenen Buchstaben
-	 * @return eine Liste der Ÿbereinstimmenden EintrŠge aus der Datenbank
+	 * @return eine Liste der ï¿½bereinstimmenden Eintrï¿½ge aus der Datenbank
 	 */
 	public List<String> completeKundennamen(String str) {
 		return dbAccess.completeKundennamen(str);
 	}
 
 	/**
-	 * Autokomplete des KundenkŸrzels
+	 * Autokomplete des Kundenkï¿½rzels
 	 * @param str die im Layout eingegebenen Buchstaben
-	 * @return eine Liste der Ÿbereinstimmenden EintrŠge aus der Datenbank
+	 * @return eine Liste der ï¿½bereinstimmenden Eintrï¿½ge aus der Datenbank
 	 */
 	public List<String> completeKundenkuerzel(String str) {
 		return dbAccess.completeKundenkuerzel(str);
@@ -246,7 +266,7 @@ public class JobBean implements Serializable {
 	}
 
 	
-	/**Erstellt mit den eingebenen Weten, falls mšglich ein Jobticket
+	/**Erstellt mit den eingebenen Weten, falls mï¿½glich ein Jobticket
 	 * wenn Pflichtfelder leer sind wird eine Fehlermeldung ausgegeben
 	 * @return job_db jobpendant aus der Datenbank
 	 */
@@ -269,7 +289,7 @@ public class JobBean implements Serializable {
 		}
 
 		if (emptyField_kunde || emptyField_job) {
-			System.err.println("Kunde- oder JobFeld wurden fehlerhaft ausgefŸllt");
+			System.err.println("Kunde- oder JobFeld wurden fehlerhaft ausgefï¿½llt");
 			return null;
 		}
 
@@ -303,7 +323,7 @@ public class JobBean implements Serializable {
 			List<Job> list = dbAccess.getDatalist(Job.class,
 					dbAccess.createEntitymanager());
 			jobTicket = list.get(list.size() - 1);
-			jobTicket.generateName();// wird benštigt damit der richtige name
+			jobTicket.generateName();// wird benï¿½tigt damit der richtige name
 										// generiert wird
 			job_db = dbAccess.updateJob(jobTicket,
 					dbAccess.createEntitymanager());
@@ -334,16 +354,16 @@ public class JobBean implements Serializable {
 		this.jobliste = jobliste;
 	}
 
-	/**Auf Buttondruck wird zum  Kundennamen ein dazugehšriges KundenkŸrzel gesucht
-	 * @param event das zum Kundenname dazugehšrige KundenkŸrzel
+	/**Auf Buttondruck wird zum  Kundennamen ein dazugehï¿½riges Kundenkï¿½rzel gesucht
+	 * @param event das zum Kundenname dazugehï¿½rige Kundenkï¿½rzel
 	 */
 	public void findKundenKuerzel(SelectEvent event) {
 		Kunden kunde = dbAccess.findKundenWithName(this.getKundenname());
 		this.kundenkuerzel = kunde.getKundenkuerzel();
 	}
 
-	/**Auf Buttondruck wird zum kundenkŸrzel ein dazugehšriger Kundenname gesucht
-	 * @param event der zum KundenkŸrzel dazugehšrige Kundenname
+	/**Auf Buttondruck wird zum kundenkï¿½rzel ein dazugehï¿½riger Kundenname gesucht
+	 * @param event der zum Kundenkï¿½rzel dazugehï¿½rige Kundenname
 	 */
 	public void findKundenname(SelectEvent event) {
 		Kunden kunde = dbAccess.findKundenWithKuerzel(this.getKundenkuerzel());
